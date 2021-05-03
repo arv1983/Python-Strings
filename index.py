@@ -23,7 +23,7 @@ print(title)
 
 
 def standardize_text(text):
-    return ". ".join(i.capitalize() for i in text.split(". "))
+    return ". ".join(i[0].upper() + i[1:] for i in text.split(". "))
 
 text = """a famosa atriz Constance Rattigan recebe uma encomenda desagradável: uma lista com números de
 telefone de pessoas que morreram recentemente. é uma coisa assustadora, considerando que os nomes das
@@ -42,7 +42,7 @@ print(normalized_text)
 def title_creator(text):
     i = 1
     # coloque quantos tracos quiser hahahaha
-    while i < 20: 
+    while i < 21: 
         text = '-'+ text + '-'
         i += 1
     return text.title()
@@ -57,7 +57,7 @@ print(title)
 
 
 def text_merge(text_of_blog_a, text_of_blog_b):
-    texto = text_of_blog_a + text_of_blog_b
+    texto = text_of_blog_a[:-2] + text_of_blog_b
     texto = texto.strip()
     texto = " ".join(texto.split())
     return ". ".join(i.capitalize() for i in texto.split(". "))
